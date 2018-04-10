@@ -1,0 +1,109 @@
+.navbar {
+  font-size: .9rem;
+}
+
+nav {
+  margin-bottom: 20px;
+}
+
+.navbar .btn-outline-success {
+  border-color: #fad481;
+  color: #fad481;
+}
+
+.navbar .btn-outline-success:hover,
+.navbar .btn-outline-success:focus {
+  background-color: #fad481;
+  color: #000;
+}
+
+.bg-custom {
+  background-color: rgb(17, 138, 132);
+}
+
+.navbar-dark .navbar-toggler {
+  border-color: transparent;
+}
+
+.navbar-toggler {
+  border: 0px;
+  border-radius: 0px;
+  border-color: transparent;
+}
+
+.dropdown-menu.dropdown-menu-right {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 21px;
+  height: 1px;
+  background-color: #fff;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.loaders {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  margin-top: 50vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.loader {
+  min-width: 100px;
+}
+
+/* google styled loader */
+
+.google-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: 100px;
+  height: 100px;
+}
+
+.google-loader-bar {
+  display: inline-block;
+  width: 5px;
+  height: 50px;
+  border-radius: 5px;
+  margin: 2px;
+  animation: google-loading 1s ease-in-out infinite;
+  background-color: #000;
+}
+
+.google-loader-bar:nth-child(1) {
+  animation-delay: 0;
+}
+
+.google-loader-bar:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.google-loader-bar:nth-child(3) {
+  animation-delay: .2s;
+}
+
+.google-loader-bar:nth-child(4) {
+  animation-delay: .3s;
+}
+
+@keyframes google-loading {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1, 2);
+  }
+  40% {
+    transform: scale(1);
+  }
+}

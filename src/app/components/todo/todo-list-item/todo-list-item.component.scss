@@ -1,0 +1,54 @@
+.options {
+  display: flex;
+  flex-direction: row;
+  button {
+    flex: 1;
+    margin: 5px;
+  }
+}
+
+:host {
+  margin: 10px;
+}
+
+.done {
+  background: #79D879;
+}
+
+.selected {
+  background: #004700;
+}
+
+.loading {
+  background: #A0A0A0;
+}
+
+.edited {
+  background: #D570FD;
+}
+
+.error {
+  background: rgb(253, 112, 112);
+}
+
+div {
+  p {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-6px, 5px);
+  transform: rotate(-45deg) translate(-6px, 5px);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-5px, -5px);
+  transform: rotate(45deg) translate(-5px, -5px);
+}
