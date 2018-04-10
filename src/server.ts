@@ -33,5 +33,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`listening on http://localhost:${PORT}!`);
+  console.log(`listening on http://34.229.103.165:${PORT}!`);
 });
