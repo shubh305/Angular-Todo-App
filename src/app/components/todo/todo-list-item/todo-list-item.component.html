@@ -1,0 +1,72 @@
+<div class="card">
+  <div class="card-body" *ngIf="todo" [class.done]="todo.status == 'Completed'" [class.selected]="todo.selected" [class.loading]="todo.loading"
+    [class.editing]="todo.editing" [class.edited]="todo.edited" [class.error]="todo.error">
+
+    <div class="row text-center">
+      <ng-container *ngIf="!todo.create && !todo.editing">
+
+        <div class="col-md-2">
+
+          <p>{{todo.text}}</p>
+        </div>
+
+        <div class="col-md-3">
+
+          <p>{{todo.description}}</p>
+        </div>
+
+        <div class="col-md-2">
+          <p>{{todo.date | date}}</p>
+        </div>
+
+        <div class="col-md-2">
+          <p>{{todo.status }}</p>
+        </div>
+
+      </ng-container>
+
+      <ng-container *ngIf="todo.create || todo.editing">
+        <div class="col-md-3">
+          <input type="text" name="text" id="text" [(ngModel)]="todo.text">
+        </div>
+
+        <div class="col-md-4">
+
+          <input type="text" name="description" id="description" [(ngModel)]="todo.description">
+        </div>
+
+
+        <div class="col-md-2">
+          <p>{{todo.status }}</p>
+        </div>
+      </ng-container>
+
+
+      <div class="col-md-3 options">
+        <ng-container *ngIf="!todo.create && !todo.editing">
+          <button class="btn btn-success" *ngIf="todo.status != 'Completed'" (click)="completeTodo(todo)">
+            <i class="fa fa-check"></i>
+          </button>
+          <button class="btn btn-primary" (click)="editTodo(todo)">
+            <i class="fa fa-pencil"></i>
+          </button>
+          <button class="btn btn-danger" (click)="this.deleted.emit(todo);">
+            <i class="fa fa-trash"></i>
+          </button>
+        </ng-container>
+        <ng-container *ngIf="todo.create">
+          <button class="btn btn-success" (click)="createTodo(todo)">
+            Create
+          </button>
+        </ng-container>
+
+        <ng-container *ngIf="todo.editing">
+
+          <button class="btn btn-primary" (click)="editTodoSubmit(todo)">
+            Submit
+          </button>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

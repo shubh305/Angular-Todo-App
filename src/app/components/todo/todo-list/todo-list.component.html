@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-custom">
+  <a class="navbar-brand" href="#">
+
+    NgRx Todo App with Angular Universal
+
+  </a>
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <a class="nav-link" (click)="logout()">Logout
+        <span class="sr-only">(current)</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+<div class="row">
+  <div class="container">
+    <div class="todos" *ngIf="todoListState$ | async as todoListState">
+      <ng-container *ngIf="todoListState.loading;else todoList">
+        <div class="loaders">
+          <div class="loader google-loader">
+            <div class="google-loader-bar"></div>
+            <div class="google-loader-bar"></div>
+            <div class="google-loader-bar"></div>
+            <div class="google-loader-bar"></div>
+          </div>
+        </div>
+      </ng-container>
+      <ng-template #todoList>
+        <div class="card">
+          <div class="card-body">
+            <div class="row text-center">
+              <div class="col-md-2">
+                <p>Todo Item</p>
+              </div>
+              <div class="col-md-3">
+                <p>Todo Description</p>
+              </div>
+              <div class="col-md-2">
+                <p>Completed Date</p>
+              </div>
+              <div class="col-md-2">
+                <p>Status</p>
+              </div>
+              <div class="col-md-3">
+                <p>Actions</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <ng-container *ngFor="let todo of todoListState.todos">
+          <app-todo-list-item [todo]="todo" (created)="onCreate($event)" (deleted)="onDelete($event)" (completed)="completeTodo($event)"
+            (edited)="onEdit($event)"> </app-todo-list-item>
+        </ng-container>
+      </ng-template>
+    </div>
+  </div>
+</div>
